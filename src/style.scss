@@ -1,1 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.container {
+  margin: 1rem auto;
+  
+  .crypto-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100vw;
+  
+    .crypto {
+      margin: 10px;
+      width: calc(25% - 40px);
+      height: auto;
+      border: 1px solid black;
+    }
+  }
+}
+
+
+div
+
+img {
+  height: 100px;
+  width: 100px;
+}
 
