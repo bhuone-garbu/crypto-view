@@ -5,14 +5,14 @@ import { Route, BrowserRouter, Switch } from 'react-router-dom'
 import './style.scss'
 
 import CryptoHome from './cryptos/CryptoHome'
-import CryptoShow from './cryptos/CryptoShow'
+import CryptoDetail from './cryptos/CryptoDetail'
 
 const App = () => {
 
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/:cryptoId" component={CryptoShow} />
+        <Route path="/:cryptoId" component={CryptoDetail} />
         <Route exact path="/" component={CryptoHome} />
       </Switch>
     </BrowserRouter>

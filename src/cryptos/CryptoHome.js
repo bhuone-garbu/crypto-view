@@ -1,8 +1,8 @@
 import React from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
 
 import CryptoCard from './CryptoCard'
+import Header from '../common/Header'
 
 class CryptoHome extends React.Component {
   constructor() {
@@ -36,19 +36,22 @@ class CryptoHome extends React.Component {
   render() {
 
     return (
-      <main className="container">
-        <div>
-          <input onChange={this.onChangeHandler} name="searchTerm" placeholder="BTC,LTC" />
-        </div>
-        {/* conditional rendering ... */}
-        {!this.state.cryptocurrencies && <h2>Loading</h2>}
+      <>
+        <Header />
+        <main className="container">
+          <div>
+            <span>Search</span> <input onChange={this.onChangeHandler} name="searchTerm" placeholder="BTC or Bitcoin" />
+          </div>
+          {/* conditional rendering ... */}
+          {!this.state.cryptocurrencies && <h2>Loading</h2>}
 
-        <div className="crypto-container">
-          {this.state.cryptocurrencies && this.state.cryptocurrencies.map(crypto => (
-            <CryptoCard key={crypto.id} {...crypto}/>
-          ))}
-        </div>
-      </main>
+          <div className="crypto-container">
+            {this.state.cryptocurrencies && this.state.cryptocurrencies.map(crypto => (
+              <CryptoCard key={crypto.id} {...crypto}/>
+            ))}
+          </div>
+        </main>
+      </>
 
     )
   }
