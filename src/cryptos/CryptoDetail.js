@@ -4,6 +4,7 @@ import axios from 'axios'
 import CryptoCard from './CryptoCard'
 import CryptoGraph from './CryptoGraph'
 import Header from '../common/Header'
+import Spinner from '../common/Spinner'
 
 class CryptoDetail extends React.Component {
   constructor() {
@@ -29,16 +30,16 @@ class CryptoDetail extends React.Component {
     return (
       <>
         <Header/>
+        {!crypto && <Spinner/>}
         <div className="crypto-detail">
-          {!crypto && <h2>Loading...</h2>}
           {crypto &&
           <>
             <div className="crypt-card-wrapper">
               <CryptoCard {...crypto} />
-              {crypto['1d'] && <p>24hour price change: {parseFloat(crypto['1d'].price_change).toFixed(2)}%</p>}
-              {crypto['7d'] && <p>7day price change: {parseFloat(crypto['7d'].price_change).toFixed(2)}%</p>}
-              {crypto['30d'] && <p>30day price change: {parseFloat(crypto['30d'].price_change).toFixed(2)}%</p>}
-              {crypto['365d'] && <p>1 year price change: {parseFloat(crypto['365d'].price_change).toFixed(2)}%</p>}
+              {crypto['1d'] && <p>24hour price change: ${parseFloat(crypto['1d'].price_change).toFixed(2)}</p>}
+              {crypto['7d'] && <p>7day price change: ${parseFloat(crypto['7d'].price_change).toFixed(2)}</p>}
+              {crypto['30d'] && <p>30day price change: ${parseFloat(crypto['30d'].price_change).toFixed(2)}</p>}
+              {crypto['365d'] && <p>1 year price change: ${parseFloat(crypto['365d'].price_change).toFixed(2)}</p>}
 
             </div>
             

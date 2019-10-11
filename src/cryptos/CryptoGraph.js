@@ -1,12 +1,13 @@
 import React from 'react'
-// import Dygraph from 'dygraphs'
 import axios from 'axios'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
+
 const options = {
   chart: {
-    zoomType: 'x'
+    zoomType: 'x',
+    backgroundColor: null
   },
   xAxis: {
     type: 'datetime',

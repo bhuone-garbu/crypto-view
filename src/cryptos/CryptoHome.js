@@ -3,6 +3,7 @@ import axios from 'axios'
 
 import CryptoCard from './CryptoCard'
 import Header from '../common/Header'
+import Spinner from '../common/Spinner'
 
 class CryptoHome extends React.Component {
   constructor() {
@@ -27,8 +28,7 @@ class CryptoHome extends React.Component {
   }
 
   onChangeHandler(e) {
-    console.log(e.target.value)
-    const regex = new RegExp(`^${e.target.value}`, 'i')
+    const regex = new RegExp(`${e.target.value}`, 'i')
     const newCryptos = this.allCryptocurrencies.filter( crypto => regex.test(crypto.name) || regex.test(crypto.symbol) )
     this.setState({ cryptocurrencies: newCryptos })
   }
@@ -40,14 +40,14 @@ class CryptoHome extends React.Component {
         <Header />
         <main className="container">
           <div>
-            <span>Search</span> <input onChange={this.onChangeHandler} name="searchTerm" placeholder="BTC or Bitcoin" />
+            <span>Search</span> <input onChange={this.onChangeHandler} placeholder="BTC or Bitcoin" />
           </div>
           {/* conditional rendering ... */}
-          {!this.state.cryptocurrencies && <h2>Loading</h2>}
+          {!this.state.cryptocurrencies && <Spinner/>}
 
           <div className="crypto-container">
             {this.state.cryptocurrencies && this.state.cryptocurrencies.map(crypto => (
-              <CryptoCard key={crypto.id} {...crypto}/>
+              <CryptoCard key={crypto.id} {...crypto} hr24={crypto['1d']}/>
             ))}
           </div>
         </main>

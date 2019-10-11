@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <header>
       <Link to='/'>
-        <h1>CryptoMarketIndex</h1>
+        <h1><span>C</span>rypto<span>M</span>arket<span>I</span>ndex</h1>
       </Link>
     </header>
   )

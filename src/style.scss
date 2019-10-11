@@ -6,12 +6,20 @@ body {
   font-family: 'Ubuntu', sans-serif;
   text-align: center;
   margin: 0;
-  // background: rgba(0, 0, 0, 0.8);
+  // background: linear-gradient( white,  rgb(15, 67, 104) );
 }
 
 a {
   text-decoration: none;
   color: black;
+}
+
+.negative {
+  color: red;
+}
+
+.positive {
+  color: rgb(0, 168, 0);
 }
 
 header {
@@ -27,6 +35,10 @@ header {
   h1 {
     margin: 0;
     font-size: 3.5rem;
+
+    span {
+      color: rgb(165, 38, 0);
+    }
   }
 }
 
@@ -44,15 +56,16 @@ header {
     span {
       text-align: right;
       margin: 1rem 1rem 1rem 0;
-      // color: white;
+      font-size: 20px;
     }
 
     input {
-      height: 1.8rem;
+      height: 2.5rem;
+      border: 1px solid black;
+      font-size: 20px;
     }
   }
 }
-
 
 
 // this is for the crypto detail page
@@ -76,6 +89,11 @@ header {
   }
 }
 
+.crypto-chart .highcharts-container {
+  display: flex;
+  align-items: center;
+}
+
 
 // this is the main home page list
 .crypto-container {
@@ -90,7 +108,7 @@ header {
   width: calc(25% - 20px);
   height: auto;
   border-radius: 5px;
-  border: 2px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.5);
   background: white;
   background: linear-gradient( white, rgba(0, 0, 0, 0.9) );
 
@@ -124,5 +142,45 @@ header {
 img {
   height: 100px;
   width: 100px;
+}
+
+
+@media only screen and (max-width: 950px){
+
+  .container {
+    width: 100%;
+  }
+
+  .crypto-container .crypto {
+    width: calc(33% - 20px);
+  }
+}
+
+@media only screen and (max-width: 600px){
+  .crypto-container .crypto {
+    width: calc(50% - 20px);
+  }
+
+  .crypto-detail{
+    margin-top: 1.2rem;
+  
+    > div {
+      width: 100%;
+    }
+  
+    .crypto {
+      width: 100%;
+    }
+  }
+}
+
+@media only screen and (max-width: 450px){
+  .crypto-container .crypto {
+    width: 100%;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
 }
 
