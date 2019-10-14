@@ -53,23 +53,32 @@ class CryptoGraph extends React.Component{
       })
   }
 
-  render(){
-    if (!this.state.data) return null
-
+  populateChartDetails(){
     const { chartTitle, duration } = this.props
     options.series = [{
       name: chartTitle,
       data: this.state.data
     }]
-    const periodTitle = duration === 1 ? '24 hours' : `${duration} days`
+
+    let periodTitle
+    if (duration === 1) periodTitle = '24 hours'
+    else if (duration === 365) periodTitle = '1 year'
+    else periodTitle = `${duration} days`
     options.title = {
       text: `${chartTitle} - ${periodTitle}`
     }
+
+    return options
+  }
+
+  render(){
+    if (!this.state.data) return null
+
     return (
       <div className="cryto-chart">
         <HighchartsReact
           highcharts={Highcharts}
-          options={options}
+          options={this.populateChartDetails()}
         />
       </div>)
   }

@@ -32,13 +32,22 @@ header {
     color: white;
   }
 
+  p a {
+    color: orange;
+  }
+
   h1 {
     margin: 0;
     font-size: 3.5rem;
 
+    &:hover {
+      color: orange;
+    }
+
     span {
       color: rgb(165, 38, 0);
     }
+
   }
 }
 

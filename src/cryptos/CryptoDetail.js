@@ -36,14 +36,15 @@ class CryptoDetail extends React.Component {
           <>
             <div className="crypt-card-wrapper">
               <CryptoCard {...crypto} />
-              {crypto['1d'] && <p>24hour price change: ${parseFloat(crypto['1d'].price_change).toFixed(2)}</p>}
-              {crypto['7d'] && <p>7day price change: ${parseFloat(crypto['7d'].price_change).toFixed(2)}</p>}
-              {crypto['30d'] && <p>30day price change: ${parseFloat(crypto['30d'].price_change).toFixed(2)}</p>}
+              {crypto['1d'] && <p>24 hour price change: ${parseFloat(crypto['1d'].price_change).toFixed(2)}</p>}
+              {crypto['7d'] && <p>7 day price change: ${parseFloat(crypto['7d'].price_change).toFixed(2)}</p>}
+              {crypto['30d'] && <p>30 day price change: ${parseFloat(crypto['30d'].price_change).toFixed(2)}</p>}
               {crypto['365d'] && <p>1 year price change: ${parseFloat(crypto['365d'].price_change).toFixed(2)}</p>}
             </div>
             <CryptoGraph coinName={crypto.name} duration={1} chartTitle={`${crypto.name}/USD`}/>
             <CryptoGraph coinName={crypto.name} duration={7} chartTitle={`${crypto.name}/USD`}/>
-            <CryptoGraph coinName={crypto.name} duration={14} chartTitle={`${crypto.name}/USD`}/>
+            <CryptoGraph coinName={crypto.name} duration={30} chartTitle={`${crypto.name}/USD`}/>
+            <CryptoGraph coinName={crypto.name} duration={365} chartTitle={`${crypto.name}/USD`}/>
             </>
           }
         </div>
