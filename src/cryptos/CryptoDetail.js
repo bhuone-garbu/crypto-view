@@ -31,7 +31,7 @@ class CryptoDetail extends React.Component {
       <>
         <Header/>
         {!crypto && <Spinner/>}
-        <div className="crypto-detail">
+        {crypto && <div className="crypto-detail">
           {crypto &&
           <>
             <div className="crypt-card-wrapper">
@@ -47,7 +47,7 @@ class CryptoDetail extends React.Component {
             <CryptoGraph coinName={crypto.name} duration={365} chartTitle={`${crypto.name}/USD`}/>
             </>
           }
-        </div>
+        </div>}
       </>
     )
   }

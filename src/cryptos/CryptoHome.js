@@ -44,12 +44,13 @@ class CryptoHome extends React.Component {
           </div>
           {/* conditional rendering ... */}
           {!this.state.cryptocurrencies && <Spinner/>}
-
-          <div className="crypto-container">
-            {this.state.cryptocurrencies && this.state.cryptocurrencies.map(crypto => (
-              <CryptoCard key={crypto.id} {...crypto} hr24={crypto['1d']}/>
-            ))}
-          </div>
+          {this.state.cryptocurrencies && 
+            <div className="crypto-container">
+              {this.state.cryptocurrencies && this.state.cryptocurrencies.map(crypto => (
+                <CryptoCard key={crypto.id} {...crypto} hr24={crypto['1d']}/>
+              ))}
+            </div>
+          }
         </main>
       </>
 
