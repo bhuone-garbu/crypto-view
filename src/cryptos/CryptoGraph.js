@@ -24,7 +24,7 @@ const options = {
       text: 'Datetime'
     },
     labels: {
-      format: 'm{value:%Y-%m-%e}'
+      format: '{value:%Y-%m-%e}'
     }
   },
   yAxis: {
