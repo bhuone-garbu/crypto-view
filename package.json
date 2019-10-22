@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "webpack-dev-server --mode=development",
-    "build": "webpack -p"
+    "build": "webpack -p",
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
@@ -30,6 +31,7 @@
   },
   "dependencies": {
     "axios": "^0.19.0",
+    "express": "^4.17.1",
     "highcharts": "^7.2.0",
     "highcharts-react-official": "^2.2.2",
     "react": "^16.10.2",

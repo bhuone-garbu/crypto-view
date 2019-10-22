@@ -8,7 +8,7 @@ import CryptoHome from './cryptos/CryptoHome'
 import CryptoDetail from './cryptos/CryptoDetail'
 
 const App = () => {
-
+  console.log('Developed by https://github.com/bhuone-garbu')
   return (
     <BrowserRouter>
       <Switch>
