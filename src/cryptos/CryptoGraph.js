@@ -30,6 +30,9 @@ const options = {
   yAxis: {
     title: {
       text: 'Prices (USD)'
+    },
+    labels: {
+      format: '${value}'
     }
   }
 }
@@ -40,16 +43,20 @@ class CryptoGraph extends React.Component{
     super()
 
     this.state = {
-      data: null
+      data: null,
+      error: null
     }
   }
 
   componentDidMount() {
-
     const { coinName, duration } = this.props
     axios.get(`https://api.coingecko.com/api/v3/coins/${coinName.replace(' ', '').toLowerCase()}/market_chart?&vs_currency=usd&days=${duration}`)
       .then(res => {
         this.setState({ data: res.data.prices })
+      })
+      .catch(err => {
+        this.setState({ error: err })
+        console.log(err)
       })
   }
 
@@ -72,14 +79,15 @@ class CryptoGraph extends React.Component{
   }
 
   render(){
-    if (!this.state.data) return null
+    if (!this.state.data && !this.state.error) return null
 
     return (
       <div className="cryto-chart">
-        <HighchartsReact
+        {!this.state.data && this.state.error && <p>Failed to get prices for this cryptocurrency.</p>}
+        {this.state.data && <HighchartsReact
           highcharts={Highcharts}
           options={this.populateChartDetails()}
-        />
+        />}
       </div>)
   }
 }

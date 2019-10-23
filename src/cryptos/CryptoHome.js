@@ -40,7 +40,7 @@ class CryptoHome extends React.Component {
         <Header />
         <main className="container">
           <div>
-            <span>Search</span> <input onChange={this.onChangeHandler} placeholder="BTC or Bitcoin" />
+            <span>Filter</span> <input onChange={this.onChangeHandler} placeholder="BTC or Bitcoin" />
           </div>
           {/* conditional rendering ... */}
           {!this.state.cryptocurrencies && <Spinner/>}
