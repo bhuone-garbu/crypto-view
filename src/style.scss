@@ -22,10 +22,6 @@ a {
   color: rgb(0, 168, 0);
 }
 
-i.fa {
-  font-size: 10rem;
-}
-
 .hover-color {
   &:hover {
     color: orange;
@@ -127,9 +123,7 @@ header {
   background: white;
   background: linear-gradient( white, rgba(0, 0, 0, 0.9) );
 
-  h2 {
-    height: 54px;
-  }
+  
 
   div:last-of-type {
     margin: 1rem 0 0;
@@ -187,12 +181,43 @@ img {
       width: 100%;
     }
   }
+
+  header {
+    padding: 0.8rem;
+  
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
+
+  .crypto {
+    margin: 7px;
+  
+    h2 {
+      margin: 0.5rem 0;
+    }
+  
+    div:last-of-type {
+      margin: 0.5rem 0 0;
+  
+      p {
+        font-size: 0.8rem;
+      }
+      
+      p:first-of-type {
+        margin: 0.3rem;
+        font-size: 2rem;
+      }
+    }
+  }
+
+  img {
+    height: 80px;
+    width: 80px;
+  }
 }
 
 @media only screen and (max-width: 450px){
-  .crypto-container .crypto {
-    width: 100%;
-  }
 
   header h1 {
     font-size: 2rem;

@@ -20,7 +20,6 @@ app.use((req, res, next) => {
 
 // just forwarding the response and error back to front end
 app.use('/api/nomics/:id', (req, res) => {
-  console.log('nomics id called')
   const cryptoSymbol = req.params.id
   axios.get(`https://api.nomics.com/v1/currencies/ticker?key=${process.env.API_KEY}&ids=${cryptoSymbol}&convert=USD`)
     .then(response => res.status(200).json(response.data))

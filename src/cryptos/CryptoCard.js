@@ -18,6 +18,7 @@ const CryptoCard = ({ id, name, symbol, logo_url: logoUrl, price, market_cap: ma
             <span className={hr24.price_change_pct < 0 ? 'negative' : 'positive'}>{parseFloat(hr24.price_change_pct * 100).toFixed(2)}%
             </span>
           </p>}
+          {!hr24 && <p> 24hr price change:&nbsp;</p>}
         </div>
       </Link>
     </div>
