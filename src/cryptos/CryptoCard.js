@@ -13,7 +13,6 @@ const CryptoCard = ({ id, name, symbol, logo_url: logoUrl, price, market_cap: ma
           <p>$ {parseFloat(price).toFixed(2)}</p>
           <p>Market cap:</p>
           <p>$ {Number(marketCap).toLocaleString()}</p>
-          <hr/>
           {hr24 && <p> 24hr price change:&nbsp;
             <span className={hr24.price_change_pct < 0 ? 'negative' : 'positive'}>{parseFloat(hr24.price_change_pct * 100).toFixed(2)}%
             </span>

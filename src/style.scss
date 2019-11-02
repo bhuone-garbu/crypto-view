@@ -123,6 +123,10 @@ header {
   background: white;
   background: linear-gradient( white, rgba(0, 0, 0, 0.9) );
 
+  h2 {
+    height: 3rem;
+    font-size: 1.5rem;
+  }
   
 
   div:last-of-type {
@@ -202,11 +206,12 @@ img {
   
       p {
         font-size: 0.8rem;
+        height: 2rem;
       }
       
       p:first-of-type {
         margin: 0.3rem;
-        font-size: 2rem;
+        font-size: 1.2rem;
       }
     }
   }
