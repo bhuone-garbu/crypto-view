@@ -3,7 +3,6 @@ import axios from 'axios'
 
 import CryptoCard from './CryptoCard'
 import CryptoGraph from './CryptoGraph'
-import Header from '../common/Header'
 import Spinner from '../common/Spinner'
 
 class CryptoDetail extends React.Component {
@@ -19,7 +18,7 @@ class CryptoDetail extends React.Component {
 
   componentDidMount() {
     const cryptoSymbol = this.props.match.params.cryptoId
-    axios.get(`https://api.nomics.com/v1/currencies/ticker?key=${process.env.API_KEY}&ids=${cryptoSymbol}&convert=USD`)
+    axios.get(`/api/nomics/${cryptoSymbol}`)
       .then(res => this.setState({ crypto: res.data[0], cryptoSymbol }))
       .catch(err => console.log(err))
   }

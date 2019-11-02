@@ -1,7 +1,6 @@
 import React from 'react'
 
 import CryptoCard from './CryptoCard'
-import Spinner from '../common/Spinner'
 
 class CryptoHome extends React.Component {
   constructor() {

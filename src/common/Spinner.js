@@ -4,7 +4,10 @@ class Spinner extends React.Component {
 
   render(){
     return (
-      <i className="fa fa-gear fa-spin"></i>
+      <>
+      <p>&nbsp;</p>&nbsp;<p/>
+      <i className="fas fa-spinner fa-7x fa-spin"/>
+      </>
     )
   }
 }

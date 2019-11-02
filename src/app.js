@@ -24,16 +24,16 @@ class App extends React.Component {
 
   componentDidMount(){
     
-    axios.get(`https://api.nomics.com/v1/currencies/ticker?key=${process.env.API_KEY}&convert=USD`)
+    axios.get('/api/nomics')
       .then(res => {
         const top100cryptos = res.data.slice(0, 100)
         this.setState({ top100cryptos })
         return res
       })
       .then(() => {
-        axios.get('https://api.coingecko.com/api/v3/coins/list')
+        axios.get('/api/coingecko')
           .then(res => {
-            // this is the response from Coin Gecko
+            // this is the response from Coingecko
             // [{ "id": "01coin", "symbol": "zoc", "name": "01coin" }, {}, ... ]
             const coingeckoMap = res.data.reduce((acc,coingecoko) => {
               acc[coingecoko.symbol.toLowerCase()] = { id: coingecoko.id, name: coingecoko.name }
@@ -53,11 +53,11 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <Header/>
-        {!loaded && <Spinner/>}
+        {!loaded && <><Spinner/></>}
         {loaded && 
           <Switch>
-            <Route path="/:cryptoId" component={(props) => <CryptoDetail { ...props} coingeckoMap={coingeckoMap}/>}/>
             <Route exact path="/" component={() => <CryptoHome top100cryptos={top100cryptos}/>}/>
+            <Route path="/:cryptoId" component={(props) => <CryptoDetail { ...props} coingeckoMap={coingeckoMap}/>}/>
           </Switch>
         }
       </BrowserRouter>
