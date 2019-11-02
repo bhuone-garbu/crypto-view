@@ -49,8 +49,10 @@ class CryptoGraph extends React.Component{
   }
 
   componentDidMount() {
-    const { coinName, duration } = this.props
-    axios.get(`https://api.coingecko.com/api/v3/coins/${coinName.replace(' ', '').toLowerCase()}/market_chart?&vs_currency=usd&days=${duration}`)
+    const { coin, duration } = this.props
+    if (!coin) return this.setState({ error: 'No market data for this crypto' })
+
+    axios.get(`https://api.coingecko.com/api/v3/coins/${coin.id}/market_chart?&vs_currency=usd&days=${duration}`)
       .then(res => {
         this.setState({ data: res.data.prices })
       })

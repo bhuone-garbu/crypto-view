@@ -23,7 +23,13 @@ a {
 }
 
 i.fa {
-  font-size: 15rem;
+  font-size: 10rem;
+}
+
+.hover-color {
+  &:hover {
+    color: orange;
+  }
 }
 
 header {
@@ -43,10 +49,6 @@ header {
   h1 {
     margin: 0;
     font-size: 3.5rem;
-
-    &:hover {
-      color: orange;
-    }
 
     span {
       color: rgb(165, 38, 0);
