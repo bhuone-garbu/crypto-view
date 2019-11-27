@@ -11,21 +11,10 @@ As someone who is very into cryptocurrency and blockchain space, I wanted to kee
 * Highcharts - to display the price data on the show page
 * [Nomics](https://nomics.com) and [Coingecko](https://www.coingecko.com/en/api) public API - Nomics for getting the **current top 100** coins in the market and Coingecko for price data. (_I later realised there was not really a need to use two different providers. Oh well_)
 * Heroku - for deploying
-* Node.js with Express - check the notes section at the bottom of this readme
-
-# Screenshots
-
-## Home page
-
-![Crypto view homepage](https://raw.githubusercontent.com/bhuone-garbu/crypto-view/master/screenshots/home-page-screenshot.png)
-
-## Show page
-
-![Crypt view showpage](https://raw.githubusercontent.com/bhuone-garbu/crypto-view/master/screenshots/show-page-screenshot.png)
-
+* Node.js with Express - check the notes below
 
 # Notes
-Node.js with Express was added later after realising the issue with CORS policy and which did not work after deploying to Heroku. I then used a local server to proxy all the requests from the React to external public.
+Node.js with Express was added later after realising the issue with CORS policy. To fix it, I created a simple express server with Node.js and used it as a local server to proxy all the requests from the React to external APIs. 👍
 
 Webpack config for proxy:
 ```javascript
@@ -81,7 +70,7 @@ app.use('/api/coingecko', (req, res) => {
 ```
 
 This allowed me to simply make `GET` request like this.
-```
+```javascript
 axios.get('/api/nomics')
   .then(res => {
     const top100cryptos = res.data.slice(0, 100)
@@ -93,3 +82,16 @@ axios.get('/api/nomics')
     ...
   })
 ```
+
+
+# Screenshots
+
+## Home page
+
+![Crypto view homepage](https://raw.githubusercontent.com/bhuone-garbu/crypto-view/master/screenshots/home-page-screenshot.png)
+
+## Show page
+
+![Crypt view showpage](https://raw.githubusercontent.com/bhuone-garbu/crypto-view/master/screenshots/show-page-screenshot.png)
+
+
