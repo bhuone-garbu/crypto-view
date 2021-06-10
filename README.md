@@ -1,3 +1,10 @@
+# Update:
+
+A new dashboard have been designed here: https://cryptompare.vercel.app (WIP)
+
+Goodbye heroku
+
+
 # CryptoView
 
 CryptoView is a simple public web app to view the top 100 crytocurrency in the current market and their trending prices. No more than 2 days were spent on building this app. All the contents such as the coin symbol and data are queried from the public APIs and rendered dynamically.
